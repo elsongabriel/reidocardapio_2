@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Teste.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>reidocardapio.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2075AD021D9EE18800E0227B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>20D37C611D9AB91C0080611E</key>
 		<dict>
 			<key>primary</key>
