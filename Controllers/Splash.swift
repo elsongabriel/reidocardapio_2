@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Main: UIViewController {
+class Splash: UIViewController {
     
     @IBOutlet weak var lblSemConexao : UILabel!
 

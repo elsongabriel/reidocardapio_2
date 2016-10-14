@@ -10,6 +10,8 @@ import UIKit
 import CoreLocation
 import MapKit
 
+var categoriaSelecionada : Categoria!
+
 extension NSMutableData {
     
     func appendString(string: String) {
@@ -23,16 +25,26 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet var myTableView: UITableView!
     
     var listaRestaurantes : [Restaurante]!
+    var sortPos = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         listaRestaurantes = [Restaurante]()
-
+        categoriaSelecionada = Categoria()
+        categoriaSelecionada.setId(-1)
+        categoriaSelecionada.setDescricao("")
+        
         myTableView.delegate = self
         myTableView.dataSource = self
         
         carregarRestaurantes()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if categoriaSelecionada.getId() != -1 {
+            print("cat selecionada: \(categoriaSelecionada.getDescricao())")
+        }
     }
     
     func carregarRestaurantes(){
@@ -80,22 +92,10 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
                                 rest.setLongitude(ln)
                                 rest.setKms(k)
                                 
-                                //rest.setRestaurante(i, nome: n, endereco: e, lat: lt, long: ln, kms: k)
-                                
                                 self.listaRestaurantes.append(rest)
-                                
-//                                alert.addAction(UIAlertAction(title: "\(rest.getNome()) - \(rest.getEndereco())", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-//                                    
-//                                    self.tracarRota(rest)
-//                                    
-//                                }))
-                                
                             }
                             
                             self.myTableView.reloadData()
-                            //alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
-                            
-                            //self.presentViewController(alert, animated: true, completion: nil)
                             
                         }else{
                             print("não trouxe rests")
@@ -126,46 +126,36 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         return cell
     }
     
-    let categorias = ["açaí", "carnes", "comida Caseira"]
-    
-    @IBAction func btnComida(sender: AnyObject) {
+    @IBAction func btnOrdenar(sender: AnyObject) {
         
-        let alert = UIAlertController(title: title, message: "", preferredStyle:UIAlertControllerStyle.ActionSheet)
+        let alert = UIAlertController(title: title, message: "Como você prefere?", preferredStyle:UIAlertControllerStyle.ActionSheet)
         
-        alert.addAction(UIAlertAction(title: "Mostrar Todos", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-            
-            print("mostrar tods categorias")
-            
+        alert.addAction(UIAlertAction(title: "Mais próximos", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+            print("mostrar mais próximos")
         }))
-        
-        
-        for cat in categorias{
-           
-            alert.addAction(UIAlertAction(title: cat, style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-                
-                print("\(cat)")
-                
-            }))
-        }
-        
-        
-        
+        alert.addAction(UIAlertAction(title: "Alfabeticamente", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+            if self.sortPos == 0 {
+                self.listaRestaurantes.sortInPlace({ $0.getNome() < $1.getNome() })
+                self.sortPos = 1
+            }else{
+                self.listaRestaurantes.sortInPlace({ $0.getNome() > $1.getNome() })
+                self.sortPos = 0
+            }
+            self.myTableView.reloadData()
+        }))
         alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
         
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-    }
-    
-    @IBAction func btnOrdenar(sender: AnyObject) {
-    }
-    
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//
-//        let cell = tableView.cellForRowAtIndexPath(indexPath)!
+        let cell = tableView.cellForRowAtIndexPath(indexPath)!
+        print(cell.textLabel?.text!)
 //        cell.accessoryType = .Checkmark
 //        bairroSelecionado = indexPath.row
 //        enderecoBusca.setBairro(bairros[bairroSelecionado])
-//    }
+    }
     
 
     override func didReceiveMemoryWarning() {

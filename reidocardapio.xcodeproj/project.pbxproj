@@ -16,7 +16,7 @@
 		207CCEC01DB011D00017A077 /* ListaBairros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CCEBC1DB011D00017A077 /* ListaBairros.swift */; };
 		207CCEC11DB011D00017A077 /* ListaRestaurantes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CCEBD1DB011D00017A077 /* ListaRestaurantes.swift */; };
 		207CCEC21DB011D00017A077 /* Localizacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CCEBE1DB011D00017A077 /* Localizacao.swift */; };
-		207CCEC31DB011D00017A077 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CCEBF1DB011D00017A077 /* Main.swift */; };
+		207CCEC31DB011D00017A077 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CCEBF1DB011D00017A077 /* Splash.swift */; };
 		207CCEC51DB012CB0017A077 /* Restaurante.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CCEC41DB012CB0017A077 /* Restaurante.swift */; };
 		207CCEC81DB015FA0017A077 /* FormaPagamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CCEC61DB015FA0017A077 /* FormaPagamento.swift */; };
 		207CCEC91DB015FA0017A077 /* Horario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CCEC71DB015FA0017A077 /* Horario.swift */; };
@@ -26,6 +26,11 @@
 		20D37C6B1D9AB91C0080611E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20D37C691D9AB91C0080611E /* Main.storyboard */; };
 		20D37C6E1D9AB91C0080611E /* reidocardapio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20D37C6C1D9AB91C0080611E /* reidocardapio.xcdatamodeld */; };
 		20D37C701D9AB91C0080611E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20D37C6F1D9AB91C0080611E /* Assets.xcassets */; };
+		20EA7ADC1DB1632800E209DD /* ListaCategoriasRests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EA7ADB1DB1632800E209DD /* ListaCategoriasRests.swift */; };
+		20EA7AE01DB1637900E209DD /* food4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20EA7ADD1DB1637900E209DD /* food4.jpg */; };
+		20EA7AE11DB1637900E209DD /* food5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20EA7ADE1DB1637900E209DD /* food5.jpg */; };
+		20EA7AE21DB1637900E209DD /* food6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20EA7ADF1DB1637900E209DD /* food6.jpg */; };
+		20EA7AE41DB167E100E209DD /* Categoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EA7AE31DB167E100E209DD /* Categoria.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,7 +56,7 @@
 		207CCEBC1DB011D00017A077 /* ListaBairros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListaBairros.swift; path = Controllers/ListaBairros.swift; sourceTree = "<group>"; };
 		207CCEBD1DB011D00017A077 /* ListaRestaurantes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListaRestaurantes.swift; path = Controllers/ListaRestaurantes.swift; sourceTree = "<group>"; };
 		207CCEBE1DB011D00017A077 /* Localizacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizacao.swift; path = Controllers/Localizacao.swift; sourceTree = "<group>"; };
-		207CCEBF1DB011D00017A077 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Main.swift; path = Controllers/Main.swift; sourceTree = "<group>"; };
+		207CCEBF1DB011D00017A077 /* Splash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Splash.swift; path = Controllers/Splash.swift; sourceTree = "<group>"; };
 		207CCEC41DB012CB0017A077 /* Restaurante.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Restaurante.swift; path = Classes/Restaurante.swift; sourceTree = "<group>"; };
 		207CCEC61DB015FA0017A077 /* FormaPagamento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormaPagamento.swift; path = Classes/FormaPagamento.swift; sourceTree = "<group>"; };
 		207CCEC71DB015FA0017A077 /* Horario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Horario.swift; path = Classes/Horario.swift; sourceTree = "<group>"; };
@@ -63,6 +68,11 @@
 		20D37C6D1D9AB91C0080611E /* reidocardapio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = reidocardapio.xcdatamodel; sourceTree = "<group>"; };
 		20D37C6F1D9AB91C0080611E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20D37C741D9AB91C0080611E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20EA7ADB1DB1632800E209DD /* ListaCategoriasRests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListaCategoriasRests.swift; path = Controllers/ListaCategoriasRests.swift; sourceTree = "<group>"; };
+		20EA7ADD1DB1637900E209DD /* food4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = food4.jpg; path = Images/food4.jpg; sourceTree = "<group>"; };
+		20EA7ADE1DB1637900E209DD /* food5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = food5.jpg; path = Images/food5.jpg; sourceTree = "<group>"; };
+		20EA7ADF1DB1637900E209DD /* food6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = food6.jpg; path = Images/food6.jpg; sourceTree = "<group>"; };
+		20EA7AE31DB167E100E209DD /* Categoria.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Categoria.swift; path = Classes/Categoria.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +142,7 @@
 				207CCEC71DB015FA0017A077 /* Horario.swift */,
 				207CCEBA1DB011B40017A077 /* EnderecoBusca.swift */,
 				207CCEC41DB012CB0017A077 /* Restaurante.swift */,
+				20EA7AE31DB167E100E209DD /* Categoria.swift */,
 				208AED321D9D87890041F749 /* Utils */,
 			);
 			name = Classes;
@@ -142,8 +153,9 @@
 			children = (
 				207CCEBC1DB011D00017A077 /* ListaBairros.swift */,
 				207CCEBD1DB011D00017A077 /* ListaRestaurantes.swift */,
+				20EA7ADB1DB1632800E209DD /* ListaCategoriasRests.swift */,
 				207CCEBE1DB011D00017A077 /* Localizacao.swift */,
-				207CCEBF1DB011D00017A077 /* Main.swift */,
+				207CCEBF1DB011D00017A077 /* Splash.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -152,6 +164,9 @@
 		20D37C7F1D9ABCDF0080611E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				20EA7ADD1DB1637900E209DD /* food4.jpg */,
+				20EA7ADE1DB1637900E209DD /* food5.jpg */,
+				20EA7ADF1DB1637900E209DD /* food6.jpg */,
 				207CCEAE1DB011870017A077 /* coroa.png */,
 				207CCEAF1DB011870017A077 /* customStar.png */,
 				207CCEB01DB011870017A077 /* food1.jpeg */,
@@ -223,9 +238,12 @@
 				207CCEB31DB011870017A077 /* coroa.png in Resources */,
 				20D37C701D9AB91C0080611E /* Assets.xcassets in Resources */,
 				207CCEB71DB011870017A077 /* food3.jpg in Resources */,
+				20EA7AE11DB1637900E209DD /* food5.jpg in Resources */,
 				207CCEB61DB011870017A077 /* food2.jpg in Resources */,
+				20EA7AE01DB1637900E209DD /* food4.jpg in Resources */,
 				20D37C6B1D9AB91C0080611E /* Main.storyboard in Resources */,
 				207CCEB41DB011870017A077 /* customStar.png in Resources */,
+				20EA7AE21DB1637900E209DD /* food6.jpg in Resources */,
 				207CCEB51DB011870017A077 /* food1.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,9 +259,11 @@
 				208AED341D9D87980041F749 /* Utilities.swift in Sources */,
 				207CCEC91DB015FA0017A077 /* Horario.swift in Sources */,
 				207CCEBB1DB011B40017A077 /* EnderecoBusca.swift in Sources */,
+				20EA7AE41DB167E100E209DD /* Categoria.swift in Sources */,
 				207CCEC11DB011D00017A077 /* ListaRestaurantes.swift in Sources */,
+				20EA7ADC1DB1632800E209DD /* ListaCategoriasRests.swift in Sources */,
 				207CCEC81DB015FA0017A077 /* FormaPagamento.swift in Sources */,
-				207CCEC31DB011D00017A077 /* Main.swift in Sources */,
+				207CCEC31DB011D00017A077 /* Splash.swift in Sources */,
 				207CCEC51DB012CB0017A077 /* Restaurante.swift in Sources */,
 				20D37C6E1D9AB91C0080611E /* reidocardapio.xcdatamodeld in Sources */,
 				207CCEC01DB011D00017A077 /* ListaBairros.swift in Sources */,
