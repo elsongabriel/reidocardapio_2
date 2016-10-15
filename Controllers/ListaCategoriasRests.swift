@@ -14,8 +14,8 @@ class ListaCategoriasRests: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-         categorias = ["açaí", "carnes", "comida Caseira"].sort()
+        let otherCats = ["açaí", "carnes", "comida Caseira"].sort()
+        categorias.appendContentsOf(otherCats)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

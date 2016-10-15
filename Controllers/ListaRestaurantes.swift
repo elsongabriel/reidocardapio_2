@@ -22,6 +22,8 @@ extension NSMutableData {
 
 class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var lblQtdRestsEncontrados: UILabel!
+    @IBOutlet weak var lblInfoRestsEncontrados: UILabel!
     @IBOutlet var myTableView: UITableView!
     
     var listaRestaurantes : [Restaurante]!
@@ -115,6 +117,15 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if listaRestaurantes.count > 0{
+            self.lblQtdRestsEncontrados.text = "\(listaRestaurantes.count)"
+            self.lblQtdRestsEncontrados.hidden = false
+            self.lblInfoRestsEncontrados.hidden = false
+            self.lblInfoRestsEncontrados.text = "restaurantes com delivery na sua localização"
+        }else{
+            self.lblQtdRestsEncontrados.hidden = true
+            self.lblInfoRestsEncontrados.text = "Não foram encontrados restaurantes próximo a você, que pena :/ "
+        }
         return listaRestaurantes.count
     }
     
@@ -124,6 +135,23 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.textLabel?.text = listaRestaurantes[indexPath.row].getNome()
         
         return cell
+    }
+    
+    var myTxt = UITextField()
+    @IBAction func procurar(sender: AnyObject) {
+        let alert = UIAlertController(title: "Pesquise seu restaurante favorito", message: "", preferredStyle: .Alert)
+        
+        alert.addTextFieldWithConfigurationHandler { (txt:UITextField) in
+            txt.placeholder = "Digite o nome do restaurante"
+            self.myTxt = txt
+        }
+        
+        alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                    
+            print("clicado ok com \(self.myTxt.text!)")
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func btnOrdenar(sender: AnyObject) {
