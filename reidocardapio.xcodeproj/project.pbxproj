@@ -22,6 +22,7 @@
 		207CCEC91DB015FA0017A077 /* Horario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CCEC71DB015FA0017A077 /* Horario.swift */; };
 		208AED341D9D87980041F749 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208AED331D9D87980041F749 /* Utilities.swift */; };
 		208AED381D9D8E300041F749 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208AED371D9D8E300041F749 /* CoreData.framework */; };
+		20A71C261DB956CD0005CDB5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A71C251DB956CD0005CDB5 /* CoreLocation.framework */; };
 		20D37C661D9AB91C0080611E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D37C651D9AB91C0080611E /* AppDelegate.swift */; };
 		20D37C6B1D9AB91C0080611E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20D37C691D9AB91C0080611E /* Main.storyboard */; };
 		20D37C6E1D9AB91C0080611E /* reidocardapio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20D37C6C1D9AB91C0080611E /* reidocardapio.xcdatamodeld */; };
@@ -64,6 +65,7 @@
 		207CCEC71DB015FA0017A077 /* Horario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Horario.swift; path = Classes/Horario.swift; sourceTree = "<group>"; };
 		208AED331D9D87980041F749 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		208AED371D9D8E300041F749 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		20A71C251DB956CD0005CDB5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		20D37C621D9AB91C0080611E /* reidocardapio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reidocardapio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D37C651D9AB91C0080611E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20D37C6A1D9AB91C0080611E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20A71C261DB956CD0005CDB5 /* CoreLocation.framework in Frameworks */,
 				208AED381D9D8E300041F749 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +137,7 @@
 		20D37C7C1D9ABB6F0080611E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				20A71C251DB956CD0005CDB5 /* CoreLocation.framework */,
 				208AED371D9D8E300041F749 /* CoreData.framework */,
 			);
 			name = Frameworks;

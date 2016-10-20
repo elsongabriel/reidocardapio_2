@@ -53,11 +53,8 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
     @IBAction func usarEndereco(sender: AnyObject) {
         
         if validarCampos(){
-            //print("validado")
-            self.performSegueWithIdentifier("listaRestaurantes", sender: self)
             
-            //validar endereço
-          
+            self.performSegueWithIdentifier("listaRestaurantes", sender: self)
         }else {
             print("Campo errado")
         }
@@ -66,46 +63,75 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
     
     func validarCampos() -> Bool{
         if (enderecoBusca.getCidade() != "" && enderecoBusca.getBairro() != ""
-            && enderecoBusca.getBairro() != "Bairro"){// && txtEndereco.text != ""){
-                //enderecoBusca.setEndereco(txtEndereco.text!)
-            return true
+            && enderecoBusca.getBairro() != "Bairro"){
+                return true
         }
         
         return false
     }
     
     @IBAction func usarLocalizacao(sender: AnyObject) {
-        locManager.requestWhenInUseAuthorization()
+//        locManager.delegate = self
+//        locManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locManager.requestWhenInUseAuthorization()
+//        locManager.startUpdatingLocation()
+        
+        
+        
     }
 
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (status == .AuthorizedAlways || status == .AuthorizedWhenInUse){
-            locManager.startUpdatingLocation()
-        }else{
-            print("Localização não foi permitida!")
-        }
-    }
+//    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+//        if (status == .AuthorizedAlways || status == .AuthorizedWhenInUse){
+//            locManager.startUpdatingLocation()
+//        }else{
+//            print("Localização não foi permitida!")
+//        }
+//    }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        userLocation = locations[0]
-        
-        if userLocation != nil {
-            locManager.stopUpdatingLocation()
-        }
-        let coord = userLocation.coordinate
-        print(coord)
-        
-//        CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) -> Void in
-//            if error != nil{
-//                print(error)
-//            }else{
-//                let place = placemarks?[0]
-//                let userPlacemark = CLPlacemark(placemark: place!)
-//                print("endereço: \(userPlacemark.subLocality!) \(userPlacemark.subAdministrativeArea!) \(userPlacemark.postalCode!) \(userPlacemark.country!)")
-//            }
-//        }
+        print(locations[0])
+//        userLocation = locations[0] as! CLLocation
+//        let coord = userLocation.coordinate
+//                    print(coord)
     }
+    
+//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+//        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)-&gt;Void in
+//            if error {
+//                println("Reverse geocoder failed with error" + error.localizedDescription)
+//                return
+//            }
+//            
+//            if placemarks.count &gt; 0 {
+//                let pm = placemarks[0] as CLPlacemark
+//                self.displayLocationInfo(pm)
+//            } else {
+//                println("Problem with the data received from geocoder")
+//            }
+//        })
+//    }
+    
+    
+//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        
+//        userLocation = locations[0]
+//        
+//        if userLocation != nil {
+//            locManager.stopUpdatingLocation()
+//            let coord = userLocation.coordinate
+//            print(coord)
+//        }
+//        
+////        CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) -> Void in
+////            if error != nil{
+////                print(error)
+////            }else{
+////                let place = placemarks?[0]
+////                let userPlacemark = CLPlacemark(placemark: place!)
+////                print("endereço: \(userPlacemark.subLocality!) \(userPlacemark.subAdministrativeArea!) \(userPlacemark.postalCode!) \(userPlacemark.country!)")
+////            }
+////        }
+//    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)

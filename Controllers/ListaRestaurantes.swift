@@ -149,11 +149,20 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         
         alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
-                    
-            print("clicado ok com \(self.myTxt.text!)")
+            self.procurarPorTxt(self.myTxt.text!)
         }))
         
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func procurarPorTxt(txt : String){
+        for item in listaRestaurantes{
+            if item.getNome().containsString(txt){
+                print("achou restaurante: \(item.getNome())")
+                break
+            }
+        }
+        print("não achou nada")
     }
     
     @IBAction func ordenar(sender: AnyObject) {
@@ -177,17 +186,14 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         
         self.presentViewController(alert, animated: true, completion: nil)
     }
-   
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         let cell = tableView.cellForRowAtIndexPath(indexPath)!
-
+        cell.accessoryType = .Checkmark
         restauranteSelecionado.setNome(cell.textLabel!.text!)
         
-//        cell.accessoryType = .Checkmark
-//        bairroSelecionado = indexPath.row
-//        enderecoBusca.setBairro(bairros[bairroSelecionado])
+        print("rest sel: \(restauranteSelecionado.getNome())")
     }
     
 
