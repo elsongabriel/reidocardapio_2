@@ -279,9 +279,9 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PQ-eU-8dE">
-                                <rect key="frame" x="20" y="164" width="130" height="30"/>
+                                <rect key="frame" x="20" y="164" width="140" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="yaT-Ew-ZQX"/>
+                                    <constraint firstAttribute="width" constant="140" id="yaT-Ew-ZQX"/>
                                     <constraint firstAttribute="height" constant="30" id="zos-Ip-3jB"/>
                                 </constraints>
                                 <state key="normal" title="Filtrar por comida"/>
@@ -290,10 +290,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oh3-Zm-q3f">
-                                <rect key="frame" x="450" y="164" width="130" height="30"/>
+                                <rect key="frame" x="440" y="164" width="140" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5uC-Af-dM9"/>
-                                    <constraint firstAttribute="width" constant="130" id="Gy5-M5-N4b"/>
+                                    <constraint firstAttribute="width" constant="140" id="Gy5-M5-N4b"/>
                                 </constraints>
                                 <state key="normal" title="Ordenar"/>
                                 <connections>

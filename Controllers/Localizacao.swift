@@ -12,7 +12,7 @@ import CoreLocation
 var enderecoBusca : EnderecoBusca!
 var bairroSelecionado = -1
 let cidades = ["Vitória de Santo Antão"]
-var userLocation : CLLocation!
+//var userLocation : CLLocation!
 
 class Localizacao: UIViewController, CLLocationManagerDelegate {
     
@@ -23,6 +23,7 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var btnUsarLocal: UIButton!
     
     var locManager : CLLocationManager!
+    var userLocation  : CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,18 +67,12 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
             && enderecoBusca.getBairro() != "Bairro"){
                 return true
         }
-        
         return false
     }
     
     @IBAction func usarLocalizacao(sender: AnyObject) {
-//        locManager.delegate = self
-//        locManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locManager.requestWhenInUseAuthorization()
-//        locManager.startUpdatingLocation()
-        
-        
-        
+        userLocation = CLLocation()
+        locManager.startUpdatingLocation()
     }
 
 //    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -87,6 +82,7 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
 //            print("Localização não foi permitida!")
 //        }
 //    }
+    
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(locations[0])

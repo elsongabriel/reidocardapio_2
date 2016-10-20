@@ -156,13 +156,18 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func procurarPorTxt(txt : String){
+        var isFind = false
         for item in listaRestaurantes{
             if item.getNome().containsString(txt){
+                isFind = true
                 print("achou restaurante: \(item.getNome())")
                 break
             }
         }
-        print("não achou nada")
+        
+        if (!isFind){
+            print("não achou nada")
+        }
     }
     
     @IBAction func ordenar(sender: AnyObject) {
