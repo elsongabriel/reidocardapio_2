@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,7 @@
 		20EA7AE11DB1637900E209DD /* food5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20EA7ADE1DB1637900E209DD /* food5.jpg */; };
 		20EA7AE21DB1637900E209DD /* food6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20EA7ADF1DB1637900E209DD /* food6.jpg */; };
 		20EA7AE41DB167E100E209DD /* Categoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EA7AE31DB167E100E209DD /* Categoria.swift */; };
+		FE51787C1DB80AC500F148D6 /* InfoRestaurante.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE51787B1DB80AC500F148D6 /* InfoRestaurante.swift */; };
 		FEEF059F1DB2A8BA00185A90 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = FEEF059E1DB2A8BA00185A90 /* search.png */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		20EA7ADE1DB1637900E209DD /* food5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = food5.jpg; path = Images/food5.jpg; sourceTree = "<group>"; };
 		20EA7ADF1DB1637900E209DD /* food6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = food6.jpg; path = Images/food6.jpg; sourceTree = "<group>"; };
 		20EA7AE31DB167E100E209DD /* Categoria.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Categoria.swift; path = Classes/Categoria.swift; sourceTree = "<group>"; };
+		FE51787B1DB80AC500F148D6 /* InfoRestaurante.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoRestaurante.swift; path = Controllers/InfoRestaurante.swift; sourceTree = "<group>"; };
 		FEEF059E1DB2A8BA00185A90 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search.png; path = Images/search.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +160,7 @@
 				20EA7ADB1DB1632800E209DD /* ListaCategoriasRests.swift */,
 				207CCEBE1DB011D00017A077 /* Localizacao.swift */,
 				207CCEBF1DB011D00017A077 /* Splash.swift */,
+				FE51787B1DB80AC500F148D6 /* InfoRestaurante.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -216,7 +219,7 @@
 				};
 			};
 			buildConfigurationList = 20D37C5D1D9AB91C0080611E /* Build configuration list for PBXProject "reidocardapio" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -271,6 +274,7 @@
 				207CCEC51DB012CB0017A077 /* Restaurante.swift in Sources */,
 				20D37C6E1D9AB91C0080611E /* reidocardapio.xcdatamodeld in Sources */,
 				207CCEC01DB011D00017A077 /* ListaBairros.swift in Sources */,
+				FE51787C1DB80AC500F148D6 /* InfoRestaurante.swift in Sources */,
 				20D37C661D9AB91C0080611E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

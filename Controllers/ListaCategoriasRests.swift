@@ -10,11 +10,11 @@ import UIKit
 
 class ListaCategoriasRests: UITableViewController {
 
-    var categorias = ["mostrar todos"]
+    var categorias = ["Mostrar Todas"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let otherCats = ["açaí", "carnes", "comida Caseira"].sort()
+        let otherCats = ["Açaí", "Carnes", "Comida Caseira"].sort()
         categorias.appendContentsOf(otherCats)
     }
     

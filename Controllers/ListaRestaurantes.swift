@@ -11,6 +11,7 @@ import CoreLocation
 import MapKit
 
 var categoriaSelecionada : Categoria!
+var restauranteSelecionado : Restaurante!
 
 extension NSMutableData {
     
@@ -34,6 +35,7 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         
         listaRestaurantes = [Restaurante]()
         categoriaSelecionada = Categoria()
+        restauranteSelecionado = Restaurante()
         categoriaSelecionada.setId(-1)
         categoriaSelecionada.setDescricao("")
         
@@ -154,7 +156,7 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    @IBAction func btnOrdenar(sender: AnyObject) {
+    @IBAction func ordenar(sender: AnyObject) {
         
         let alert = UIAlertController(title: title, message: "Como você prefere?", preferredStyle:UIAlertControllerStyle.ActionSheet)
         
@@ -175,11 +177,14 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         
         self.presentViewController(alert, animated: true, completion: nil)
     }
+   
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         let cell = tableView.cellForRowAtIndexPath(indexPath)!
-        print(cell.textLabel?.text!)
+
+        restauranteSelecionado.setNome(cell.textLabel!.text!)
+        
 //        cell.accessoryType = .Checkmark
 //        bairroSelecionado = indexPath.row
 //        enderecoBusca.setBairro(bairros[bairroSelecionado])

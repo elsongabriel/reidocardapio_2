@@ -53,7 +53,7 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
     @IBAction func usarEndereco(sender: AnyObject) {
         
         if validarCampos(){
-            print("validado")
+            //print("validado")
             self.performSegueWithIdentifier("listaRestaurantes", sender: self)
             
             //validar endereço
@@ -66,8 +66,8 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
     
     func validarCampos() -> Bool{
         if (enderecoBusca.getCidade() != "" && enderecoBusca.getBairro() != ""
-            && enderecoBusca.getBairro() != "Bairro" && txtEndereco.text != ""){
-                enderecoBusca.setEndereco(txtEndereco.text!)
+            && enderecoBusca.getBairro() != "Bairro"){// && txtEndereco.text != ""){
+                //enderecoBusca.setEndereco(txtEndereco.text!)
             return true
         }
         

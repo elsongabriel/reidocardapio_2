@@ -12,7 +12,7 @@ public class EnderecoBusca{
     
     private var cidade: String!
     private var bairro: String!
-    private var endereco: String!
+//    private var endereco: String!
    
     func getCidade() -> String{
         return self.cidade
@@ -22,9 +22,9 @@ public class EnderecoBusca{
         return self.bairro
     }
     
-    func getEndereco() -> String{
-        return self.endereco
-    }
+//    func getEndereco() -> String{
+//        return self.endereco
+//    }
     
     func setCidade(cidade: String){
         self.cidade = cidade
@@ -34,8 +34,8 @@ public class EnderecoBusca{
         self.bairro = bairro
     }
     
-    func setEndereco(endereco :String){
-        self.endereco = endereco
-    }
+//    func setEndereco(endereco :String){
+//        self.endereco = endereco
+//    }
     
 }
