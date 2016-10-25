@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		207BA32C1DBFEC85009DFB73 /* restCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207BA32B1DBFEC85009DFB73 /* restCell.swift */; };
 		207CCEB31DB011870017A077 /* coroa.png in Resources */ = {isa = PBXBuildFile; fileRef = 207CCEAE1DB011870017A077 /* coroa.png */; };
 		207CCEB41DB011870017A077 /* customStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 207CCEAF1DB011870017A077 /* customStar.png */; };
 		207CCEB51DB011870017A077 /* food1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 207CCEB01DB011870017A077 /* food1.jpeg */; };
@@ -50,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		207BA32B1DBFEC85009DFB73 /* restCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = restCell.swift; path = Controllers/restCell.swift; sourceTree = "<group>"; };
 		207CCEAE1DB011870017A077 /* coroa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coroa.png; path = Images/coroa.png; sourceTree = "<group>"; };
 		207CCEAF1DB011870017A077 /* customStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = customStar.png; path = Images/customStar.png; sourceTree = "<group>"; };
 		207CCEB01DB011870017A077 /* food1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = food1.jpeg; path = Images/food1.jpeg; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				207CCEBE1DB011D00017A077 /* Localizacao.swift */,
 				207CCEBF1DB011D00017A077 /* Splash.swift */,
 				FE51787B1DB80AC500F148D6 /* InfoRestaurante.swift */,
+				207BA32B1DBFEC85009DFB73 /* restCell.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -279,6 +282,7 @@
 				20D37C6E1D9AB91C0080611E /* reidocardapio.xcdatamodeld in Sources */,
 				207CCEC01DB011D00017A077 /* ListaBairros.swift in Sources */,
 				FE51787C1DB80AC500F148D6 /* InfoRestaurante.swift in Sources */,
+				207BA32C1DBFEC85009DFB73 /* restCell.swift in Sources */,
 				20D37C661D9AB91C0080611E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

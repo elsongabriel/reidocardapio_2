@@ -14,8 +14,7 @@ class ListaCategoriasRests: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let otherCats = ["Açaí", "Carnes", "Comida Caseira"].sort()
-        categorias.appendContentsOf(otherCats)
+        categorias.appendContentsOf(listaCategoriasWeb)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -56,7 +55,6 @@ class ListaCategoriasRests: UITableViewController {
     
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)!
-        cell.selected = false
         cell.accessoryType = .None
     }
     

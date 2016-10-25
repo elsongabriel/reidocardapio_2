@@ -26,6 +26,7 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var lblQtdRestsEncontrados: UILabel!
     @IBOutlet weak var lblInfoRestsEncontrados: UILabel!
     @IBOutlet var myTableView: UITableView!
+    var myActivityIndicator = UIActivityIndicatorView()
     
     var listaRestaurantes : [Restaurante]!
     var sortPos = 0
@@ -42,16 +43,36 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         myTableView.delegate = self
         myTableView.dataSource = self
         
+        iniciarComponentes()
         carregarRestaurantes()
+    }
+    
+    func iniciarComponentes(){
+        myActivityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
+        myActivityIndicator.center = self.view.center
+        myActivityIndicator.hidesWhenStopped = true
+        myActivityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        self.view.addSubview(myActivityIndicator)
+    }
+    
+    func activityInSwitch(ligar:Bool){
+        if (ligar){
+            self.myActivityIndicator.startAnimating()
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        }else{
+            self.myActivityIndicator.stopAnimating()
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         if categoriaSelecionada.getId() != -1 {
-            print("cat selecionada: \(categoriaSelecionada.getDescricao())")
+            print("cat selecionada: \(categoriaSelecionada.getDescricao())") //funcionando
         }
     }
     
     func carregarRestaurantes(){
+        self.activityInSwitch(true)
         let urlWBS = NSURL(string:"http://egcservices.com.br/webservices/ios/cardapio/listar_rests.php")!
         let request = NSMutableURLRequest(URL:urlWBS)
         request.HTTPMethod = "POST"
@@ -60,7 +81,7 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
             
             if(error != nil){
                 print("error = \(error!)")
-                
+                self.activityInSwitch(false)
                 let alert = UIAlertController(title: "Aconteceu um Erro!", message: "Por favor, tente novamente!", preferredStyle:UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Continuar", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
@@ -100,9 +121,10 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
                             }
                             
                             self.myTableView.reloadData()
-                            
+                            self.activityInSwitch(false)
                         }else{
                             print("não trouxe rests")
+                            self.activityInSwitch(false)
                         }
                         
                     }
@@ -132,9 +154,17 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("mycell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("mycell", forIndexPath: indexPath) as! restCell
         
-        cell.textLabel?.text = listaRestaurantes[indexPath.row].getNome()
+        let img = UIImage(named: "customStar.png")
+        let name = listaRestaurantes[indexPath.row].getNome()
+        let cat = "Minhas categorias"
+        let info = "Minhas informações"
+        
+        cell.img.image = img
+        cell.restName.text = name
+        cell.restCat.text = cat
+        cell.restInfo.text = info
         
         return cell
     }
@@ -193,12 +223,9 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
-        let cell = tableView.cellForRowAtIndexPath(indexPath)!
-        cell.accessoryType = .Checkmark
-        restauranteSelecionado.setNome(cell.textLabel!.text!)
-        
-        print("rest sel: \(restauranteSelecionado.getNome())")
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! restCell
+        restauranteSelecionado.setNome(cell.restName.text!)
+        //self.performSegueWithIdentifier("infoRest", sender: self)
     }
     
 
