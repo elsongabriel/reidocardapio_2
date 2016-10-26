@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		207544E91DC12243004C2028 /* CardapioRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207544E81DC12243004C2028 /* CardapioRest.swift */; };
+		207544EB1DC12259004C2028 /* InformacaoRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207544EA1DC12259004C2028 /* InformacaoRest.swift */; };
+		207544F51DC144D2004C2028 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 207544F41DC144D2004C2028 /* logo.png */; };
 		207BA32C1DBFEC85009DFB73 /* restCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207BA32B1DBFEC85009DFB73 /* restCell.swift */; };
 		207CCEB31DB011870017A077 /* coroa.png in Resources */ = {isa = PBXBuildFile; fileRef = 207CCEAE1DB011870017A077 /* coroa.png */; };
 		207CCEB41DB011870017A077 /* customStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 207CCEAF1DB011870017A077 /* customStar.png */; };
@@ -51,6 +54,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		207544E81DC12243004C2028 /* CardapioRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardapioRest.swift; path = Controllers/InfoRest/CardapioRest.swift; sourceTree = "<group>"; };
+		207544EA1DC12259004C2028 /* InformacaoRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformacaoRest.swift; path = Controllers/InfoRest/InformacaoRest.swift; sourceTree = "<group>"; };
+		207544F41DC144D2004C2028 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Images/logo.png; sourceTree = "<group>"; };
 		207BA32B1DBFEC85009DFB73 /* restCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = restCell.swift; path = Controllers/restCell.swift; sourceTree = "<group>"; };
 		207CCEAE1DB011870017A077 /* coroa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coroa.png; path = Images/coroa.png; sourceTree = "<group>"; };
 		207CCEAF1DB011870017A077 /* customStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = customStar.png; path = Images/customStar.png; sourceTree = "<group>"; };
@@ -96,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		207544E71DC11B8A004C2028 /* InfoRest */ = {
+			isa = PBXGroup;
+			children = (
+				207544E81DC12243004C2028 /* CardapioRest.swift */,
+				207544EA1DC12259004C2028 /* InformacaoRest.swift */,
+			);
+			name = InfoRest;
+			sourceTree = "<group>";
+		};
 		208AED321D9D87890041F749 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +176,7 @@
 		20D37C7E1D9ABB7E0080611E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				207544E71DC11B8A004C2028 /* InfoRest */,
 				207CCEBC1DB011D00017A077 /* ListaBairros.swift */,
 				207CCEBD1DB011D00017A077 /* ListaRestaurantes.swift */,
 				20EA7ADB1DB1632800E209DD /* ListaCategoriasRests.swift */,
@@ -177,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				FEEF059E1DB2A8BA00185A90 /* search.png */,
+				207544F41DC144D2004C2028 /* logo.png */,
 				20EA7ADD1DB1637900E209DD /* food4.jpg */,
 				20EA7ADE1DB1637900E209DD /* food5.jpg */,
 				20EA7ADF1DB1637900E209DD /* food6.jpg */,
@@ -256,6 +273,7 @@
 				20EA7AE01DB1637900E209DD /* food4.jpg in Resources */,
 				20D37C6B1D9AB91C0080611E /* Main.storyboard in Resources */,
 				FEEF059F1DB2A8BA00185A90 /* search.png in Resources */,
+				207544F51DC144D2004C2028 /* logo.png in Resources */,
 				207CCEB41DB011870017A077 /* customStar.png in Resources */,
 				20EA7AE21DB1637900E209DD /* food6.jpg in Resources */,
 				207CCEB51DB011870017A077 /* food1.jpeg in Resources */,
@@ -277,12 +295,14 @@
 				207CCEC11DB011D00017A077 /* ListaRestaurantes.swift in Sources */,
 				20EA7ADC1DB1632800E209DD /* ListaCategoriasRests.swift in Sources */,
 				207CCEC81DB015FA0017A077 /* FormaPagamento.swift in Sources */,
+				207544EB1DC12259004C2028 /* InformacaoRest.swift in Sources */,
 				207CCEC31DB011D00017A077 /* Splash.swift in Sources */,
 				207CCEC51DB012CB0017A077 /* Restaurante.swift in Sources */,
 				20D37C6E1D9AB91C0080611E /* reidocardapio.xcdatamodeld in Sources */,
 				207CCEC01DB011D00017A077 /* ListaBairros.swift in Sources */,
 				FE51787C1DB80AC500F148D6 /* InfoRestaurante.swift in Sources */,
 				207BA32C1DBFEC85009DFB73 /* restCell.swift in Sources */,
+				207544E91DC12243004C2028 /* CardapioRest.swift in Sources */,
 				20D37C661D9AB91C0080611E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

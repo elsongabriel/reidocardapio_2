@@ -104,14 +104,31 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
                                 
                                 let i = Int(result["id"] as! String)!
                                 let n = result["nome"] as! String
+                                let img = result["imagem"] as! String
+                                let c = "Vitória"
+                                let b = "Qualquer"
                                 let e = result["endereco"] as! String
+                                
+                                let cat = "Qualquer"
+                                let tmp = result["tempo_medio"] as! String
+                                let pre = result["preco_minimo"] as! String
+                                let ava = "10"
+                                
                                 let lt = result["latitude"] as! String
                                 let ln = result["longitude"] as! String
                                 let k = result["km_permitidos"] as! String
                                 
                                 rest.setId(i)
                                 rest.setNome(n)
+                                rest.setImagem(img)
+                                rest.setCidade(c)
+                                rest.setBairro(b)
                                 rest.setEndereco(e)
+                                
+                                rest.setCategoria(cat)
+                                rest.setTempoMedio(tmp)
+                                rest.setPrecoMin(pre)
+                                rest.setAvaliacoes(ava)
                                 
                                 rest.setLatitude(lt)
                                 rest.setLongitude(ln)
@@ -156,7 +173,7 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("mycell", forIndexPath: indexPath) as! restCell
         
-        let img = UIImage(named: "customStar.png")
+        let img = UIImage(named: "logo.png")
         let name = listaRestaurantes[indexPath.row].getNome()
         let cat = "Minhas categorias"
         let info = "Minhas informações"
@@ -223,9 +240,7 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! restCell
-        restauranteSelecionado.setNome(cell.restName.text!)
-        //self.performSegueWithIdentifier("infoRest", sender: self)
+        restauranteSelecionado = self.listaRestaurantes[indexPath.row]
     }
     
 

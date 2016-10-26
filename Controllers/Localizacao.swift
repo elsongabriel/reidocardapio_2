@@ -85,49 +85,51 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations[0])
-//        userLocation = locations[0] as! CLLocation
-//        let coord = userLocation.coordinate
-//                    print(coord)
+        userLocation = locations[0] //as! CLLocation
+        CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) -> Void in
+            if error != nil{
+                print(error)
+                return
+            }
+            
+            if placemarks!.count > 0 {
+                
+                let userPlacemark = placemarks![0] as CLPlacemark
+                self.locManager.stopUpdatingLocation()
+
+//                print(userPlacemark.addressDictionary)
+                
+                enderecoBusca.setCidade(userPlacemark.locality!)
+                print(userPlacemark.subLocality)
+                //enderecoBusca.setBairro("T")
+               
+                /*
+                address =                                     {
+                formattedAddressLine =                                         (
+                "Rua Esc. Manoel de H. Cavalcante",
+                "Vit\U00f3ria de Santo Ant\U00e3o - PE",
+                55612,
+                Brasil
+                );
+                structuredAddress =                                         {
+                administrativeArea = Pernambuco;
+                administrativeAreaCode = PE;
+                country = Brasil;
+                countryCode = BR;
+                fullThoroughfare = "Rua Esc. Manoel de H. Cavalcante";
+                geoId =                                             (
+                );
+                locality = "Vit\U00f3ria de Santo Ant\U00e3o";
+                postCode = 55612;
+                thoroughfare = "Rua Esc. Manoel de H. Cavalcante";
+                };
+                };
+                */
+                
+            }
+        }
+
     }
-    
-//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)-&gt;Void in
-//            if error {
-//                println("Reverse geocoder failed with error" + error.localizedDescription)
-//                return
-//            }
-//            
-//            if placemarks.count &gt; 0 {
-//                let pm = placemarks[0] as CLPlacemark
-//                self.displayLocationInfo(pm)
-//            } else {
-//                println("Problem with the data received from geocoder")
-//            }
-//        })
-//    }
-    
-    
-//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        
-//        userLocation = locations[0]
-//        
-//        if userLocation != nil {
-//            locManager.stopUpdatingLocation()
-//            let coord = userLocation.coordinate
-//            print(coord)
-//        }
-//        
-////        CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) -> Void in
-////            if error != nil{
-////                print(error)
-////            }else{
-////                let place = placemarks?[0]
-////                let userPlacemark = CLPlacemark(placemark: place!)
-////                print("endereço: \(userPlacemark.subLocality!) \(userPlacemark.subAdministrativeArea!) \(userPlacemark.postalCode!) \(userPlacemark.country!)")
-////            }
-////        }
-//    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
