@@ -14,6 +14,7 @@ class InfoRestaurante: UIViewController {
     
     @IBOutlet var cardapioContainer: UIView!
     @IBOutlet var informacaoContainer: UIView!
+    @IBOutlet var carrinhoContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +26,12 @@ class InfoRestaurante: UIViewController {
         case 0:
 //            NSLog("cardapio selected")
             self.cardapioContainer.hidden = false
+            self.carrinhoContainer.hidden = false
             self.informacaoContainer.hidden = true
         case 1:
 //            NSLog("info selected")
             self.cardapioContainer.hidden = true
+            self.carrinhoContainer.hidden = true
             self.informacaoContainer.hidden = false
         default:
             break;

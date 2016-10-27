@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2041E90C1DC2963C00B71188 /* CarrinhoRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041E90B1DC2963C00B71188 /* CarrinhoRest.swift */; };
 		207544E91DC12243004C2028 /* CardapioRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207544E81DC12243004C2028 /* CardapioRest.swift */; };
 		207544EB1DC12259004C2028 /* InformacaoRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207544EA1DC12259004C2028 /* InformacaoRest.swift */; };
 		207544F51DC144D2004C2028 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 207544F41DC144D2004C2028 /* logo.png */; };
@@ -54,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2041E90B1DC2963C00B71188 /* CarrinhoRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarrinhoRest.swift; path = Controllers/InfoRest/CarrinhoRest.swift; sourceTree = "<group>"; };
 		207544E81DC12243004C2028 /* CardapioRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardapioRest.swift; path = Controllers/InfoRest/CardapioRest.swift; sourceTree = "<group>"; };
 		207544EA1DC12259004C2028 /* InformacaoRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformacaoRest.swift; path = Controllers/InfoRest/InformacaoRest.swift; sourceTree = "<group>"; };
 		207544F41DC144D2004C2028 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Images/logo.png; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				207544E81DC12243004C2028 /* CardapioRest.swift */,
 				207544EA1DC12259004C2028 /* InformacaoRest.swift */,
+				2041E90B1DC2963C00B71188 /* CarrinhoRest.swift */,
 			);
 			name = InfoRest;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				207CCEC91DB015FA0017A077 /* Horario.swift in Sources */,
 				207CCEBB1DB011B40017A077 /* EnderecoBusca.swift in Sources */,
 				20EA7AE41DB167E100E209DD /* Categoria.swift in Sources */,
+				2041E90C1DC2963C00B71188 /* CarrinhoRest.swift in Sources */,
 				207CCEC11DB011D00017A077 /* ListaRestaurantes.swift in Sources */,
 				20EA7ADC1DB1632800E209DD /* ListaCategoriasRests.swift in Sources */,
 				207CCEC81DB015FA0017A077 /* FormaPagamento.swift in Sources */,

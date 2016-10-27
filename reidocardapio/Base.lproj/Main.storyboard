@@ -228,11 +228,23 @@
                                     <segue destination="i5o-ox-fa7" kind="embed" id="mNx-C0-5Td"/>
                                 </connections>
                             </containerView>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Hf-OU-R8z">
+                                <rect key="frame" x="0.0" y="530" width="600" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="Izm-aN-rBB"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="kP6-O1-Us9" kind="embed" id="Tm8-fD-QaR"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="inj-C1-SFd" secondAttribute="trailing" constant="-20" id="0ED-7Z-Jh3"/>
+                            <constraint firstItem="9Hf-OU-R8z" firstAttribute="leading" secondItem="bf0-XR-CXZ" secondAttribute="leadingMargin" constant="-20" id="1SC-x2-MSj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9Hf-OU-R8z" secondAttribute="trailing" constant="-20" id="1Tr-i3-OnC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zaO-03-xa8" secondAttribute="trailing" constant="-20" id="BaY-uc-nMC"/>
+                            <constraint firstItem="qY6-5W-zeC" firstAttribute="top" secondItem="9Hf-OU-R8z" secondAttribute="bottom" id="DIi-8q-t40"/>
                             <constraint firstItem="zaO-03-xa8" firstAttribute="top" secondItem="Du4-tv-Vil" secondAttribute="bottom" id="UHI-TW-4SC"/>
                             <constraint firstItem="zaO-03-xa8" firstAttribute="leading" secondItem="bf0-XR-CXZ" secondAttribute="leadingMargin" constant="-20" id="WGf-hk-YMC"/>
                             <constraint firstItem="zcz-w4-D1v" firstAttribute="leading" secondItem="bf0-XR-CXZ" secondAttribute="leadingMargin" constant="-20" id="bie-pA-kN8"/>
@@ -246,6 +258,7 @@
                     </view>
                     <connections>
                         <outlet property="cardapioContainer" destination="zcz-w4-D1v" id="vBz-7y-C1T"/>
+                        <outlet property="carrinhoContainer" destination="9Hf-OU-R8z" id="fan-JS-46i"/>
                         <outlet property="informacaoContainer" destination="inj-C1-SFd" id="6m8-Jo-iVS"/>
                         <outlet property="mySegment" destination="HUe-0c-d9R" id="qTo-p5-ck1"/>
                     </connections>
@@ -677,6 +690,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWO-6E-Ahc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-334" y="-2919"/>
+        </scene>
+        <!--Carrinho Rest-->
+        <scene sceneID="N9K-go-Mpv">
+            <objects>
+                <viewController id="kP6-O1-Us9" customClass="CarrinhoRest" customModule="reidocardapio" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LV8-fu-8lM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Carrinho de compras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sex-lx-9zc">
+                                <rect key="frame" x="20" y="14" width="206" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.019607843829999999" green="0.98823535439999999" blue="0.78431379800000001" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PF7-I4-VrJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="350" y="-2062"/>
         </scene>
     </scenes>
     <resources>
