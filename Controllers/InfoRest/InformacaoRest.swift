@@ -11,6 +11,7 @@ import UIKit
 class InformacaoRest: UIViewController {
     
     @IBOutlet var img: UIImageView!
+    @IBOutlet var progress: UIActivityIndicatorView!
     @IBOutlet var nomeRest: UILabel!
     @IBOutlet var categRest: UILabel!
     @IBOutlet var formasPgtoRest: UILabel!
@@ -21,18 +22,21 @@ class InformacaoRest: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        activityInSwitch(true)
         
         //carrega a imagem
         let url = NSURL(string: "\(restauranteSelecionado.getImagem())")!
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) { data, response, error in
             
             if(error != nil){
+                self.activityInSwitch(false)
                 print("error = \(error!)")
                 return
             }
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 if data != nil{
+                    self.activityInSwitch(false)
                     self.img.image = UIImage(data: data!)
                 }
             })
@@ -44,21 +48,19 @@ class InformacaoRest: UIViewController {
         formasPgtoRest.text = restauranteSelecionado.getAvaliacoes()
         horariosRest.text = restauranteSelecionado.getAvaliacoes()
     }
+    
+    func activityInSwitch(ligar:Bool){
+        if (ligar){
+            self.progress.startAnimating()
+//            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        }else{
+            self.progress.stopAnimating()
+//            UIApplication.sharedApplication().endIgnoringInteractionEvents()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

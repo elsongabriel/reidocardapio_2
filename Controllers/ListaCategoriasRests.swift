@@ -9,12 +9,9 @@
 import UIKit
 
 class ListaCategoriasRests: UITableViewController {
-
-    var categorias = ["Mostrar Todas"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categorias.appendContentsOf(listaCategoriasWeb)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -22,16 +19,16 @@ class ListaCategoriasRests: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categorias.count
+        return listaCategoriasWeb.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("mycell", forIndexPath: indexPath)
         
-        cell.textLabel?.text = categorias[indexPath.row]
+        cell.textLabel?.text = listaCategoriasWeb[indexPath.row].getDescricao()
         
         let myCat = categoriaSelecionada.getId()
-        if myCat != -1 && myCat == indexPath.row  {
+        if myCat != -1 && listaCategoriasWeb[indexPath.row].getId() == myCat {
             tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .None)
             cell.accessoryType = .Checkmark
         }
@@ -48,8 +45,7 @@ class ListaCategoriasRests: UITableViewController {
             categoriaSelecionada.setId(-1)
         }else{
             cell.accessoryType = .Checkmark
-            categoriaSelecionada.setId(indexPath.row)
-            categoriaSelecionada.setDescricao(categorias[categoriaSelecionada.getId()])
+            categoriaSelecionada = listaCategoriasWeb[indexPath.row]
         }
     }
     

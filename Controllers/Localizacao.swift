@@ -12,7 +12,7 @@ import CoreLocation
 var enderecoBusca : EnderecoBusca!
 var bairroSelecionado = -1
 let cidades = ["Vitória de Santo Antão"]
-//var userLocation : CLLocation!
+var userLocation : CLLocation!
 
 class Localizacao: UIViewController, CLLocationManagerDelegate {
     
@@ -23,7 +23,7 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var btnUsarLocal: UIButton!
     
     var locManager : CLLocationManager!
-    var userLocation  : CLLocation!
+    //var userLocation  : CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +85,8 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        userLocation = locations[0] //as! CLLocation
+        self.locManager.stopUpdatingLocation()
+        userLocation = locations[0]
         CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) -> Void in
             if error != nil{
                 print(error)
@@ -95,37 +96,11 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
             if placemarks!.count > 0 {
                 
                 let userPlacemark = placemarks![0] as CLPlacemark
-                self.locManager.stopUpdatingLocation()
-
-//                print(userPlacemark.addressDictionary)
+//                self.locManager.stopUpdatingLocation()
                 
                 enderecoBusca.setCidade(userPlacemark.locality!)
-                print(userPlacemark.subLocality)
-                //enderecoBusca.setBairro("T")
-               
-                /*
-                address =                                     {
-                formattedAddressLine =                                         (
-                "Rua Esc. Manoel de H. Cavalcante",
-                "Vit\U00f3ria de Santo Ant\U00e3o - PE",
-                55612,
-                Brasil
-                );
-                structuredAddress =                                         {
-                administrativeArea = Pernambuco;
-                administrativeAreaCode = PE;
-                country = Brasil;
-                countryCode = BR;
-                fullThoroughfare = "Rua Esc. Manoel de H. Cavalcante";
-                geoId =                                             (
-                );
-                locality = "Vit\U00f3ria de Santo Ant\U00e3o";
-                postCode = 55612;
-                thoroughfare = "Rua Esc. Manoel de H. Cavalcante";
-                };
-                };
-                */
-                
+                enderecoBusca.setBairro("Bairro")
+                //self.performSegueWithIdentifier("listaRestaurantes", sender: self)
             }
         }
 
@@ -139,5 +114,16 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    /*
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
+    }
+    */
+
 
 }

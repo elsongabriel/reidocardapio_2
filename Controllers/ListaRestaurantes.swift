@@ -26,8 +26,9 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var lblQtdRestsEncontrados: UILabel!
     @IBOutlet weak var lblInfoRestsEncontrados: UILabel!
     @IBOutlet var myTableView: UITableView!
-    var myActivityIndicator = UIActivityIndicatorView()
+    @IBOutlet var noItensFound: UIImageView!
     
+    var myActivityIndicator = UIActivityIndicatorView()
     var listaRestaurantes : [Restaurante]!
     var sortPos = 0
     
@@ -44,7 +45,6 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         myTableView.dataSource = self
         
         iniciarComponentes()
-        carregarRestaurantes()
     }
     
     func iniciarComponentes(){
@@ -66,26 +66,43 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     override func viewDidAppear(animated: Bool) {
-        if categoriaSelecionada.getId() != -1 {
-            print("cat selecionada: \(categoriaSelecionada.getDescricao())") //funcionando
-        }
+        carregarRestaurantes(categoriaSelecionada.getId())
     }
     
-    func carregarRestaurantes(){
+    func carregarRestaurantes(value: Int){
         self.activityInSwitch(true)
+        
         let urlWBS = NSURL(string:"http://egcservices.com.br/webservices/ios/cardapio/listar_rests.php")!
         let request = NSMutableURLRequest(URL:urlWBS)
         request.HTTPMethod = "POST"
+        request.timeoutInterval = 10
+        
+        let body = NSMutableData()
+        let boundary = "Boundary-\(NSUUID().UUIDString)"
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        body.appendString("--\(boundary)\r\n")
+        body.appendString("Content-Disposition: form-data; name=\"categoria\"\r\n\r\n")
+        body.appendString("\(value)\r\n")
+        body.appendString("--\(boundary)\r\n")
+        request.HTTPBody = body as NSData
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             
             if(error != nil){
                 print("error = \(error!)")
                 self.activityInSwitch(false)
-                let alert = UIAlertController(title: "Aconteceu um Erro!", message: "Por favor, tente novamente!", preferredStyle:UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Continuar", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
                 
+                if error!.code == 1005{
+                    
+                    let alert = UIAlertController(title: "Problemas na Conexão", message: "Ocorreu um problema ao tentar conectar com o servidor!", preferredStyle:UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Continuar", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }else{
+                
+                    let alert = UIAlertController(title: "Aconteceu um Erro!", message: "Por favor, tente novamente!", preferredStyle:UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Continuar", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
                 return
             }
             
@@ -137,10 +154,15 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
                                 self.listaRestaurantes.append(rest)
                             }
                             
+                            self.noItensFound.hidden = true
+                            self.myTableView.hidden = false
                             self.myTableView.reloadData()
                             self.activityInSwitch(false)
                         }else{
-                            print("não trouxe rests")
+                            self.noItensFound.hidden = false
+                            self.myTableView.hidden = true
+                            self.myTableView.reloadData()
+//                            print("não trouxe rests")
                             self.activityInSwitch(false)
                         }
                         

@@ -11,7 +11,7 @@ import CoreLocation
 import CoreData
 
 //var globais
-var listaCategoriasWeb = [String]()
+var listaCategoriasWeb = [Categoria]() //[String]()
 var listaBairrosWeb = [String]()
 
 @UIApplicationMain

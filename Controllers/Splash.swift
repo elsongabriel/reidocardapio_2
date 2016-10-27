@@ -119,8 +119,13 @@ class Splash: UIViewController {
                         let results = parseJSON["categorias"] as! NSArray
                         if (results.count > 0){
                             for result in results {
-                                let r = result["descricao"] as! String
-                                listaCategoriasWeb.append(r)
+                                let i = Int(result["id"] as! String)!
+                                let d = result["descricao"] as! String
+                                
+                                let cat = Categoria()
+                                cat.setId(i)
+                                cat.setDescricao(d)
+                                listaCategoriasWeb.append(cat)
                             }
                             
                             if (listaCategoriasWeb.count == results.count){
