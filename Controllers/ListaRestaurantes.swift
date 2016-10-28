@@ -45,6 +45,7 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         myTableView.dataSource = self
         
         iniciarComponentes()
+        carregarRestaurantes()
     }
     
     func iniciarComponentes(){
@@ -65,9 +66,9 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        carregarRestaurantes()//-1)//categoriaSelecionada.getId())
-    }
+//    override func viewDidAppear(animated: Bool) {
+//        carregarRestaurantes()//-1)//categoriaSelecionada.getId())
+//    }
     
     func carregarRestaurantes(){ //value: Int){
         self.activityInSwitch(true)
