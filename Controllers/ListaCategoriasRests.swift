@@ -14,7 +14,7 @@ class ListaCategoriasRests: UITableViewController {
         super.viewDidLoad()
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    /*override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
@@ -57,5 +57,5 @@ class ListaCategoriasRests: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
+    }*/
 }

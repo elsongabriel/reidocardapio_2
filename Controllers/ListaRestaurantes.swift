@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-var categoriaSelecionada : Categoria!
+//var categoriaSelecionada : Categoria!
 var restauranteSelecionado : Restaurante!
 
 extension NSMutableData {
@@ -36,10 +36,10 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
         
         listaRestaurantes = [Restaurante]()
-        categoriaSelecionada = Categoria()
+//        categoriaSelecionada = Categoria()
         restauranteSelecionado = Restaurante()
-        categoriaSelecionada.setId(-1)
-        categoriaSelecionada.setDescricao("")
+//        categoriaSelecionada.setId(-1)
+//        categoriaSelecionada.setDescricao("")
         
         myTableView.delegate = self
         myTableView.dataSource = self
@@ -66,10 +66,10 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     override func viewDidAppear(animated: Bool) {
-        carregarRestaurantes(categoriaSelecionada.getId())
+        carregarRestaurantes()//-1)//categoriaSelecionada.getId())
     }
     
-    func carregarRestaurantes(value: Int){
+    func carregarRestaurantes(){ //value: Int){
         self.activityInSwitch(true)
         
         let urlWBS = NSURL(string:"http://egcservices.com.br/webservices/ios/cardapio/listar_rests.php")!
@@ -77,14 +77,14 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         request.HTTPMethod = "POST"
         request.timeoutInterval = 10
         
-        let body = NSMutableData()
-        let boundary = "Boundary-\(NSUUID().UUIDString)"
-        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        body.appendString("--\(boundary)\r\n")
-        body.appendString("Content-Disposition: form-data; name=\"categoria\"\r\n\r\n")
-        body.appendString("\(value)\r\n")
-        body.appendString("--\(boundary)\r\n")
-        request.HTTPBody = body as NSData
+//        let body = NSMutableData()
+//        let boundary = "Boundary-\(NSUUID().UUIDString)"
+//        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+//        body.appendString("--\(boundary)\r\n")
+//        body.appendString("Content-Disposition: form-data; name=\"categoria\"\r\n\r\n")
+//        body.appendString("\(value)\r\n")
+//        body.appendString("--\(boundary)\r\n")
+//        request.HTTPBody = body as NSData
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             
@@ -119,33 +119,31 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
                             for result in results {
                                 let rest = Restaurante()
                                 
-                                let i = Int(result["id"] as! String)!
-                                let n = result["nome"] as! String
-                                let img = result["imagem"] as! String
-                                let c = "Vitória"
-                                let b = "Qualquer"
-                                let e = result["endereco"] as! String
+                                let id = Int(result["id"] as! String)!
+                                let nome = result["nome"] as! String
+                                let end = result["endereco"] as! String
+                                let email = result["email"] as! String
+                                let tel1 = result["telefone1"] as! String
+                                let tel2 = result["telefone2"] as! String
                                 
-                                let cat = "Qualquer"
-                                let tmp = result["tempo_medio"] as! String
                                 let pre = result["preco_minimo"] as! String
-                                let ava = "10"
+                                let tmp = result["tempo_medio"] as! String
+                                let img = result["imagem"] as! String
                                 
                                 let lt = result["latitude"] as! String
                                 let ln = result["longitude"] as! String
                                 let k = result["km_permitidos"] as! String
                                 
-                                rest.setId(i)
-                                rest.setNome(n)
-                                rest.setImagem(img)
-                                rest.setCidade(c)
-                                rest.setBairro(b)
-                                rest.setEndereco(e)
+                                rest.setId(id)
+                                rest.setNome(nome)
+                                rest.setEndereco(end)
+                                rest.setEmail(email)
+                                rest.setTelefone1(tel1)
+                                rest.setTelefone2(tel2)
                                 
-                                rest.setCategoria(cat)
-                                rest.setTempoMedio(tmp)
                                 rest.setPrecoMin(pre)
-                                rest.setAvaliacoes(ava)
+                                rest.setTempoMedio(tmp)
+                                rest.setImagem(img)
                                 
                                 rest.setLatitude(lt)
                                 rest.setLongitude(ln)
@@ -181,26 +179,43 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if listaRestaurantes.count > 0{
-            self.lblQtdRestsEncontrados.text = "\(listaRestaurantes.count)"
             self.lblQtdRestsEncontrados.hidden = false
             self.lblInfoRestsEncontrados.hidden = false
+            self.lblQtdRestsEncontrados.text = "\(listaRestaurantes.count)"
             self.lblInfoRestsEncontrados.text = "restaurantes com delivery na sua localização"
         }else{
             self.lblQtdRestsEncontrados.hidden = true
-            self.lblInfoRestsEncontrados.text = "Não foram encontrados restaurantes próximo a você, que pena :/ "
+            self.lblInfoRestsEncontrados.text = "Não foram encontrados restaurantes próximo a você, que pena :/"
         }
         return listaRestaurantes.count
     }
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("mycell", forIndexPath: indexPath) as! restCell
-        
-        let img = UIImage(named: "logo.png")
+       
         let name = listaRestaurantes[indexPath.row].getNome()
         let cat = "Minhas categorias"
         let info = "Minhas informações"
         
-        cell.img.image = img
+        //carrega a imagem
+        let url = NSURL(string: "\(listaRestaurantes[indexPath.row].getImagem())")!
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url) { data, response, error in
+            
+            if(error != nil){
+                self.activityInSwitch(false)
+                print("error = \(error!)")
+                return
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                if data != nil{
+                    cell.img.image = UIImage(data: data!)
+                }
+            })
+        }
+        task.resume()
+        
+        //cell.img.image = img
         cell.restName.text = name
         cell.restCat.text = cat
         cell.restInfo.text = info
@@ -239,6 +254,7 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
+    /* SEM USO
     @IBAction func ordenar(sender: AnyObject) {
         
         let alert = UIAlertController(title: title, message: "Como você prefere?", preferredStyle:UIAlertControllerStyle.ActionSheet)
@@ -259,7 +275,7 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
         
         self.presentViewController(alert, animated: true, completion: nil)
-    }
+    }*/
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         restauranteSelecionado = self.listaRestaurantes[indexPath.row]
@@ -270,16 +286,4 @@ class ListaRestaurantes: UIViewController, UITableViewDelegate, UITableViewDataS
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

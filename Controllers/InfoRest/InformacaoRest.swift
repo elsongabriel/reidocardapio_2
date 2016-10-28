@@ -44,9 +44,9 @@ class InformacaoRest: UIViewController {
         task.resume()
         
         nomeRest.text = restauranteSelecionado.getNome()
-        categRest.text = restauranteSelecionado.getCategoria()
-        formasPgtoRest.text = restauranteSelecionado.getAvaliacoes()
-        horariosRest.text = restauranteSelecionado.getAvaliacoes()
+        //categRest.text = restauranteSelecionado.getCategoria()
+        //formasPgtoRest.text = restauranteSelecionado.getAvaliacoes()
+        //horariosRest.text = restauranteSelecionado.getAvaliacoes()
     }
     
     func activityInSwitch(ligar:Bool){

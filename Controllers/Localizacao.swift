@@ -23,7 +23,6 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var btnUsarLocal: UIButton!
     
     var locManager : CLLocationManager!
-    //var userLocation  : CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,8 +84,10 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         self.locManager.stopUpdatingLocation()
         userLocation = locations[0]
+        
         CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) -> Void in
             if error != nil{
                 print(error)
@@ -96,14 +97,10 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
             if placemarks!.count > 0 {
                 
                 let userPlacemark = placemarks![0] as CLPlacemark
-//                self.locManager.stopUpdatingLocation()
-                
                 enderecoBusca.setCidade(userPlacemark.locality!)
                 enderecoBusca.setBairro("Bairro")
-                //self.performSegueWithIdentifier("listaRestaurantes", sender: self)
             }
         }
-
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -114,16 +111,4 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-
-
 }

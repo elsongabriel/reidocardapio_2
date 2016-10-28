@@ -179,14 +179,14 @@
 		20D37C7E1D9ABB7E0080611E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				207544E71DC11B8A004C2028 /* InfoRest */,
+				207CCEBF1DB011D00017A077 /* Splash.swift */,
+				207CCEBE1DB011D00017A077 /* Localizacao.swift */,
 				207CCEBC1DB011D00017A077 /* ListaBairros.swift */,
 				207CCEBD1DB011D00017A077 /* ListaRestaurantes.swift */,
-				20EA7ADB1DB1632800E209DD /* ListaCategoriasRests.swift */,
-				207CCEBE1DB011D00017A077 /* Localizacao.swift */,
-				207CCEBF1DB011D00017A077 /* Splash.swift */,
-				FE51787B1DB80AC500F148D6 /* InfoRestaurante.swift */,
 				207BA32B1DBFEC85009DFB73 /* restCell.swift */,
+				FE51787B1DB80AC500F148D6 /* InfoRestaurante.swift */,
+				207544E71DC11B8A004C2028 /* InfoRest */,
+				20EA7ADB1DB1632800E209DD /* ListaCategoriasRests.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -238,7 +238,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = "Bruno Rocha";
+				ORGANIZATIONNAME = "Elson Costa";
 				TargetAttributes = {
 					20D37C611D9AB91C0080611E = {
 						CreatedOnToolsVersion = 7.2.1;

@@ -12,15 +12,18 @@ public class Restaurante{
     
     private var id : Int!
     private var nome: String!
-    private var imagem: String!
-    private var cidade: String!
-    private var bairro: String!
     private var endereco: String!
+    private var email: String!
+    private var telefone1: String!
+    private var telefone2: String!
     
-    private var categoria: String!
-    private var tempoMedio: String!
+//    private var cidade: String!
+//    private var bairro: String!
+    
     private var precoMin: String!
-    private var avaliacoes: String!
+    private var tempoMedio: String!
+    private var imagem: String!
+
     
     //configs
     private var latitude : String!
@@ -44,29 +47,22 @@ public class Restaurante{
         self.nome = nome
     }
     
-    func getImagem() -> String{
-        return self.imagem
-    }
-    
-    func setImagem(img :String){
-        self.imagem = img
-    }
-    
-    func getCidade() -> String{
-        return self.cidade
-    }
-    
-    func setCidade(cidade: String){
-        self.cidade = cidade
-    }
-    
-    func getBairro() -> String{
-        return self.bairro
-    }
-    
-    func setBairro(bairro: String){
-        self.bairro = bairro
-    }
+//    
+//    func getCidade() -> String{
+//        return self.cidade
+//    }
+//    
+//    func setCidade(cidade: String){
+//        self.cidade = cidade
+//    }
+//    
+//    func getBairro() -> String{
+//        return self.bairro
+//    }
+//    
+//    func setBairro(bairro: String){
+//        self.bairro = bairro
+//    }
     
     func getEndereco() -> String{
         return self.endereco
@@ -76,12 +72,44 @@ public class Restaurante{
         self.endereco = endereco
     }
     
-    func getCategoria() -> String{
-        return self.categoria
+    func getEmail() -> String{
+        return self.email
     }
     
-    func setCategoria(cat :String){
-        self.categoria = cat
+    func setEmail(email :String){
+        self.email = email
+    }
+    
+    func getTelefone1() -> String{
+        return self.telefone1
+    }
+    
+    func setTelefone1(tel1 :String){
+        self.telefone1 = tel1
+    }
+    
+    func getTelefone2() -> String{
+        return self.telefone2
+    }
+    
+    func setTelefone2(tel2 :String){
+        self.telefone2 = tel2
+    }
+    
+//    func getCategoria() -> String{
+//        return self.categoria
+//    }
+//    
+//    func setCategoria(cat :String){
+//        self.categoria = cat
+//    }
+    
+    func getPrecoMin() -> String{
+        return self.precoMin
+    }
+    
+    func setPrecoMin(precoMin: String){
+        self.precoMin = precoMin
     }
     
     func getTempoMedio() -> String{
@@ -92,21 +120,21 @@ public class Restaurante{
         self.tempoMedio = tempoMedio
     }
     
-    func getPrecoMin() -> String{
-        return self.precoMin
+    func getImagem() -> String{
+        return self.imagem
     }
     
-    func setPrecoMin(precoMin: String){
-        self.precoMin = precoMin
+    func setImagem(img :String){
+        self.imagem = img
     }
     
-    func getAvaliacoes() -> String{
-        return self.avaliacoes
-    }
-    
-    func setAvaliacoes(avaliacoes: String){
-        self.avaliacoes = avaliacoes
-    }
+//    func getAvaliacoes() -> String{
+//        return self.avaliacoes
+//    }
+//    
+//    func setAvaliacoes(avaliacoes: String){
+//        self.avaliacoes = avaliacoes
+//    }
     
     func getLatitude() -> String{
         return self.latitude
