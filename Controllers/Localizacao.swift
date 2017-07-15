@@ -12,7 +12,7 @@ import CoreLocation
 var enderecoBusca : EnderecoBusca!
 var bairroSelecionado = -1
 let cidades = ["Vitória de Santo Antão"]
-//var userLocation : CLLocation!
+var userLocation : CLLocation!
 
 class Localizacao: UIViewController, CLLocationManagerDelegate {
     
@@ -23,7 +23,6 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var btnUsarLocal: UIButton!
     
     var locManager : CLLocationManager!
-    var userLocation  : CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,49 +84,24 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations[0])
-//        userLocation = locations[0] as! CLLocation
-//        let coord = userLocation.coordinate
-//                    print(coord)
+        
+        self.locManager.stopUpdatingLocation()
+        userLocation = locations[0]
+        
+        CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) -> Void in
+            if error != nil{
+                print(error)
+                return
+            }
+            
+            if placemarks!.count > 0 {
+                
+                let userPlacemark = placemarks![0] as CLPlacemark
+                enderecoBusca.setCidade(userPlacemark.locality!)
+                enderecoBusca.setBairro("Bairro")
+            }
+        }
     }
-    
-//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)-&gt;Void in
-//            if error {
-//                println("Reverse geocoder failed with error" + error.localizedDescription)
-//                return
-//            }
-//            
-//            if placemarks.count &gt; 0 {
-//                let pm = placemarks[0] as CLPlacemark
-//                self.displayLocationInfo(pm)
-//            } else {
-//                println("Problem with the data received from geocoder")
-//            }
-//        })
-//    }
-    
-    
-//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        
-//        userLocation = locations[0]
-//        
-//        if userLocation != nil {
-//            locManager.stopUpdatingLocation()
-//            let coord = userLocation.coordinate
-//            print(coord)
-//        }
-//        
-////        CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) -> Void in
-////            if error != nil{
-////                print(error)
-////            }else{
-////                let place = placemarks?[0]
-////                let userPlacemark = CLPlacemark(placemark: place!)
-////                print("endereço: \(userPlacemark.subLocality!) \(userPlacemark.subAdministrativeArea!) \(userPlacemark.postalCode!) \(userPlacemark.country!)")
-////            }
-////        }
-//    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
@@ -137,5 +111,4 @@ class Localizacao: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }

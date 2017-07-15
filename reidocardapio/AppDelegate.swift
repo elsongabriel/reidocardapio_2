@@ -10,6 +10,10 @@ import UIKit
 import CoreLocation
 import CoreData
 
+//var globais
+var listaCategoriasWeb = [Categoria]() //[String]()
+var listaBairrosWeb = [String]()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

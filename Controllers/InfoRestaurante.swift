@@ -10,26 +10,36 @@ import UIKit
 
 class InfoRestaurante: UIViewController {
 
+    @IBOutlet var mySegment: UISegmentedControl!
+    
+    @IBOutlet var cardapioContainer: UIView!
+    @IBOutlet var informacaoContainer: UIView!
+    @IBOutlet var carrinhoContainer: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+    }
+    
+    @IBAction func segmentChanged(sender: AnyObject) {
+        switch mySegment.selectedSegmentIndex
+        {
+        case 0:
+//            NSLog("cardapio selected")
+            self.cardapioContainer.hidden = false
+            self.carrinhoContainer.hidden = false
+            self.informacaoContainer.hidden = true
+        case 1:
+//            NSLog("info selected")
+            self.cardapioContainer.hidden = true
+            self.carrinhoContainer.hidden = true
+            self.informacaoContainer.hidden = false
+        default:
+            break;
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

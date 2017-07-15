@@ -11,11 +11,10 @@ import UIKit
 class ListaBairros: UITableViewController, UINavigationControllerDelegate {
     
     var bairros = ["Mostrar Todos"]
-    let bairros2 = ["Bela Vista", "Matriz", "Livramento", "Cajá", "Redenção", "Maués", "Cuscuz", "Lídia Queiroz", "Outro"].sort()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bairros.appendContentsOf(bairros2)
+        bairros.appendContentsOf(listaBairrosWeb)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
